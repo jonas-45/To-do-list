@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list</title>
+
+    <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.min.css"/>
 </head>
 <body>
     <h1>TO-DO List</h1>
-    <div class="todo-list">
-      <ul>
-
+    <div class="tasks-wrapper">
+      <ul class="todo-list">
+        <li class="tasks-title"><label>Today's To Do</label><img class="refresh-img" src="./images/refresh.png" alt="Refresh-list"></li>
+        <li><input type="text" id="input-task" placeholder="Add to your list..."></li>
+        <!-- <li class="task-item"><input type="checkbox"> Task 1</li>
+        <li class="task-item"><input type="checkbox"> Task 1</li>
+        <li class="task-item"><input type="checkbox"> Task 1</li> -->
       </ul>
+
+      <p class="clear-all">Clear all completed</p>
     </div>
 </body>
 </html>

@@ -1,7 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
-  background-color: bisque;
+  background-color: #f6f6f6;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.tasks-wrapper {
+  width: 500px;
+  min-height: 300px;
+  background-color: #f6f6f6;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.todo-list {
+  padding: 0;
+  height: auto;
+  background-color: #fff;
+}
+
+.todo-list li {
+  font-family: 'Montserrat', sans-serif;
+  list-style: none;
+  font-size: 1rem;
+  border-bottom: 1px solid #999;
+  color: #888;
+}
+
+.tasks-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 17px;
+  font-weight: bold;
+}
+
+.refresh-img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.task-item {
+  padding: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.checkbox {
+  padding-bottom: 15px;
+}
+
+.dots {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.todo-list li input#input-task {
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  border: none !important;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+.clear-all {
+  padding: 20px;
+  margin: auto;
+  cursor: pointer;
 }

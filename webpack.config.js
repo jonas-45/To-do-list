@@ -25,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.html$/i,
-        use: 'html-loader'
+        use: 'html-loader',
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -34,11 +34,11 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'images/'
-            }
-          }
-        ]
-      }
+              outputPath: 'images/',
+            },
+          },
+        ],
+      },
     ],
   },
   optimization: {

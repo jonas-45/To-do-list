@@ -14,8 +14,7 @@ class TasksOperations {
  removeTask = (taskIndex) => {
    const index = taskIndex - 1;
    this.tasksArr.splice(index, 1); // Remove task from task array by using index
-
-   for (let i = index; i < this.tasksArr.length; i + 1) {
+   for (let i = index; i < this.tasksArr.length; i += 1) {
      this.tasksArr[i].index = i + 1;
    }
    this.updateLocalStorage();

@@ -2,7 +2,7 @@ import './style.css';
 import allTasks from './taskArray.js';
 import TasksOperations from './crud.js';
 import { addTaskToDisplay, displayAllTasks } from './addTaskToDisplay.js';
-import removeTaskFromDisplay from './removeTaskFromDisplay.js';
+// import removeTaskFromDisplay from './removeTaskFromDisplay.js';
 import refresh from './images/refresh.png';
 
 const taskDescriptionInput = document.getElementById('input-task');
@@ -24,23 +24,21 @@ taskDescriptionInput.addEventListener('keypress', (e) => {
 });
 
 clearAll.addEventListener('click', () => {
-  const uncompleted = allTasks.filter((task) => {
-    return !task.completed;
-  })
+  const uncompleted = allTasks.filter((task) => !task.completed);
   uncompleted.forEach((task, index) => {
     task.index = index + 1;
   });
   taskObj.tasksArr = uncompleted;
   taskObj.updateLocalStorage();
   window.location.reload();
-})
+});
 
 // clearAll.addEventListener('click', () => {
 //   const uncompleted = [];
 //   allTasks.forEach((task, index) => {
 //     if (!task.completed) {
 //       uncompleted.push(task);
-//       removeTaskFromDisplay(index + 1); 
+//       removeTaskFromDisplay(index + 1);
 //     }
 //   });
 

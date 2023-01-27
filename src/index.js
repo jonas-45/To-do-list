@@ -24,18 +24,30 @@ taskDescriptionInput.addEventListener('keypress', (e) => {
 });
 
 clearAll.addEventListener('click', () => {
-  const uncompleted = [];
-  allTasks.forEach((task, index) => {
-    if (!task.completed) {
-      uncompleted.push(task);
-      removeTaskFromDisplay(index + 1);
-    }
-  });
-
+  const uncompleted = allTasks.filter((task) => {
+    return !task.completed;
+  })
   uncompleted.forEach((task, index) => {
     task.index = index + 1;
   });
   taskObj.tasksArr = uncompleted;
   taskObj.updateLocalStorage();
   window.location.reload();
-});
+})
+
+// clearAll.addEventListener('click', () => {
+//   const uncompleted = [];
+//   allTasks.forEach((task, index) => {
+//     if (!task.completed) {
+//       uncompleted.push(task);
+//       removeTaskFromDisplay(index + 1); 
+//     }
+//   });
+
+//   uncompleted.forEach((task, index) => {
+//     task.index = index + 1;
+//   });
+//   taskObj.tasksArr = uncompleted;
+//   taskObj.updateLocalStorage();
+//   window.location.reload();
+// });

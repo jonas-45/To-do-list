@@ -52,8 +52,8 @@ Get the repositor url from above and clone it to your desired folder using
 <!--Future features -->
 ## Future features <a name="future-features"></a>
 The following features will be added to the project in the future;
-1. Store task in a database to persist longer
-2. Remove and edit tasks
+1.Add user account creation to help user access to-do list from anywhere on any device.
+2. Store task in a database to persist permanently.
 
 <!-- AUTHORS -->
 

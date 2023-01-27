@@ -15,6 +15,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'src/images/[name].[ext]',
     clean: true,
   },
   module: {
@@ -24,21 +25,25 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.html$/i,
         use: 'html-loader',
       },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-            },
-          },
-        ],
-      },
+      // {
+      //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         name: '[name].[ext]',
+      //         outputPath: 'images/',
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
   optimization: {

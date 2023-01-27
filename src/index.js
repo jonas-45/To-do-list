@@ -1,48 +1,41 @@
 import './style.css';
-import Task from './task-class.js';
-import Dots from './images/dots.png';
+import allTasks from './taskArray.js';
+import TasksOperations from './crud.js';
+import { addTaskToDisplay, displayAllTasks } from './addTaskToDisplay.js';
+import removeTaskFromDisplay from './removeTaskFromDisplay.js';
+import refresh from './images/refresh.png';
 
-const task1 = new Task(0, 'Attend morning session meeting', false);
-const task2 = new Task(1, 'Meet coding partners', false);
-const task3 = new Task(2, 'Attend morning session meeting', false);
-const tasks = [
-  {
-    index: task1.index,
-    description: task1.desc,
-    completed: task1.completed,
-  },
-  {
-    index: task2.index,
-    description: task2.desc,
-    completed: task2.completed,
-  },
-  {
-    index: task3.index,
-    description: task3.desc,
-    completed: task3.completed,
-  },
-];
+const taskDescriptionInput = document.getElementById('input-task');
+const clearAll = document.querySelector('.clear-all');
+const refreshImg = document.querySelector('.refresh-img');
+refreshImg.setAttribute('src', refresh);
+const taskObj = new TasksOperations(allTasks);
 
-const populateTasks = (tasksArr) => {
-  const ul = document.querySelector('.todo-list');
-  tasksArr.forEach((task) => {
-    const li = document.createElement('li');
-    const input = document.createElement('input');
-    input.setAttribute('type', 'checkbox');
+if (allTasks.length > 0) {
+  displayAllTasks(allTasks);
+}
 
-    // add image to list item
-    const dotImage = new Image();
-    dotImage.src = Dots;
-    dotImage.classList.add('dots');
-    li.classList.add('task-item');
-    input.classList.add('checkbox');
+taskDescriptionInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    taskObj.addTask(e.target.value);
+    addTaskToDisplay(allTasks[allTasks.length - 1]);
+    e.target.value = '';
+  }
+});
 
-    li.appendChild(input);
-    li.appendChild(document.createTextNode(task.description));
-    li.appendChild(dotImage);
-    dotImage.style.marginLeft = 'auto';
-    ul.appendChild(li);
+clearAll.addEventListener('click', () => {
+  const uncompleted = [];
+  allTasks.forEach((task, index) => {
+    if (!task.completed) {
+      uncompleted.push(task);
+      removeTaskFromDisplay(index + 1);
+    }
   });
-};
 
-populateTasks(tasks);
+  uncompleted.forEach((task, index) => {
+    task.index = index + 1;
+  });
+  taskObj.tasksArr = uncompleted;
+  taskObj.updateLocalStorage();
+  window.location.reload();
+});

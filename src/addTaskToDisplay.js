@@ -64,12 +64,27 @@ const addListDescriptionListener = (taskinput) => {
     if(e.target.previousElementSibling.checked){
       e.target.style.textDecoration = 'line-through';
     }
-    })
+    });
 
     taskinput.addEventListener('keyup', (e) => {
       const editedText = e.target.value;
       const index = e.target.getAttribute('data-index');
       taskObj.editTask(index,editedText);
+    });
+
+    taskinput.addEventListener('keypress', (e) => {
+      if(e.key === 'Enter'){
+        if(e.target.classList.contains('focused')) {
+          e.target.parentNode.style.backgroundColor = '';
+          e.target.style.backgroundColor = '';
+          e.target.nextElementSibling.setAttribute('src',Dots);
+          e.target.classList.remove('focused');
+          if(e.target.previousElementSibling.checked){
+            e.target.style.textDecoration = 'line-through';
+          }
+          document.getElementById('input-task').focus();
+        }
+      }
     });
 }
 

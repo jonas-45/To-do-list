@@ -44,5 +44,9 @@ class TasksOperations {
  updateLocalStorage = () => {
   localStorage.setItem('tasks',JSON.stringify(this.tasksArr));
  }
+
+ updateTasks = (newTasksArr) => {
+  this.tasksArr = newTasksArr;
+ }
 }
 export default TasksOperations;

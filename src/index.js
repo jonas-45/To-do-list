@@ -5,8 +5,8 @@ import {addTaskToDisplay,displayAllTasks} from './addTaskToDisplay.js';
 import removeTaskFromDisplay from './removeTaskFromDisplay.js';
 //localStorage.clear();
 const taskDescriptionInput = document.getElementById('input-task');
-
-const taskCrud = new TasksOperations(allTasks);
+const clearAll = document.querySelector('.clear-all');
+const taskObj = new TasksOperations(allTasks);
 
 
 if(allTasks.length > 0){
@@ -15,11 +15,26 @@ if(allTasks.length > 0){
 
 taskDescriptionInput.addEventListener('keypress', (e) => {
   if(e.key === 'Enter') {
-    taskCrud.addTask(e.target.value);
-    console.log(allTasks[allTasks.length - 1]);
+    taskObj.addTask(e.target.value);
     addTaskToDisplay(allTasks[allTasks.length - 1]);
     e.target.value = "";
   }
 });
 
+clearAll.addEventListener('click', () => {
+  let uncompleted = [];
+  allTasks.forEach((task,index) => {
+    if(!task.completed){
+      uncompleted.push(task);
+      removeTaskFromDisplay(index+1);
+    }
+  });
+
+  uncompleted.forEach((task,index) => {
+    task.index = index + 1;
+  });
+  taskObj.tasksArr = uncompleted;
+  taskObj.updateLocalStorage();
+  window.location.reload();
+});
 

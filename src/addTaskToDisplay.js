@@ -66,9 +66,7 @@ const addRemoveButtonListener = (removebtn) => {
     e.preventDefault();
     const dataIndex = e.target.getAttribute('data-index');
     if (e.target.previousElementSibling.classList.contains('focused')) {
-      console.log('removing task');
       taskObj.removeTask(dataIndex);
-      console.log(taskObj.tasksArr);
       removeTaskFromDisplay(dataIndex);
       const tasks = document.querySelectorAll('.dots');
       const chkboxes = document.querySelectorAll('.checkbox');

@@ -18,7 +18,7 @@ h1 {
 
 .tasks-wrapper {
   width: 500px;
-  min-height: 300px;
+  min-height: auto;
   background-color: #f6f6f6;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
@@ -56,15 +56,25 @@ h1 {
 }
 
 .task-item {
-  padding: 15px;
+  padding: 2px 15px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  column-gap: 30px;
+  column-gap: 10px;
+}
+
+.active {
+  background-color: #f1efb4;
 }
 
 .checkbox {
   padding-bottom: 15px;
+}
+
+.task-desc {
+  flex-grow: 1;
+  padding: 15px;
+  border: none !important;
 }
 
 .dots {

@@ -9,19 +9,15 @@ class TasksOperations {
     const newTask = new Task(this.getLastIndex() + 1,taskDesc);
     this.tasksArr.push(newTask);
     this.updateLocalStorage();
-    //addTaskToDisplay(newTask);
   }
 
  removeTask = (taskIndex) => {
   const index = taskIndex - 1;
-  console.log('task-id' + index);
   this.tasksArr.splice(index,1); //Remove task from task array by using index
-  //const tasks = document.querySelectorAll('.dots');
+
   for(let i = index; i < this.tasksArr.length; i++){
     this.tasksArr[i].index = i + 1;
-    //tasks[i].setAttribute('data-index',i);
   }
-  console.log(this.tasksArr)
   this.updateLocalStorage();
  }
 
@@ -33,7 +29,6 @@ class TasksOperations {
  markAsCompleted = (index) => {
   const trueIndex = index - 1;
   this.tasksArr[trueIndex].completed = true;
-  console.log(this.tasksArr);
   this.updateLocalStorage();
  }
 

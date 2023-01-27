@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -34,7 +35,7 @@ h1 {
 }
 
 .todo-list li {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
   list-style: none;
   font-size: 1rem;
   border-bottom: 1px solid #999;
@@ -95,7 +96,7 @@ input:focus {
 }
 
 .clear-all {
-  
+  padding-top: 10px;
   margin: auto;
   cursor: pointer;
 }

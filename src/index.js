@@ -3,9 +3,12 @@ import allTasks from './taskArray.js';
 import TasksOperations from './crud.js';
 import {addTaskToDisplay,displayAllTasks} from './addTaskToDisplay.js';
 import removeTaskFromDisplay from './removeTaskFromDisplay.js';
-//localStorage.clear();
+import refresh from './images/refresh.png';
+
 const taskDescriptionInput = document.getElementById('input-task');
 const clearAll = document.querySelector('.clear-all');
+const refreshImg = document.querySelector('.refresh-img');
+refreshImg.setAttribute('src',refresh);
 const taskObj = new TasksOperations(allTasks);
 
 

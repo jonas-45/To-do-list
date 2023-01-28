@@ -72,7 +72,7 @@ const addRemoveButtonListener = (removebtn) => {
       const chkboxes = document.querySelectorAll('.checkbox');
       const taskInputs = document.querySelectorAll('.task-desc');
       const index = dataIndex - 1;
-      for (let i = index; i < taskObj.tasksArr.length; i + 1) {
+      for (let i = index; i < taskObj.tasksArr.length; i += 1) {
         tasks[i].setAttribute('data-index', i + 1);
         chkboxes[i].setAttribute('data-index', i + 1);
         taskInputs[i].setAttribute('data-index', i + 1);
